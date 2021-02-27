@@ -28,6 +28,7 @@ namespace Vaquinha.Unit.Tests.DomainTests
             var doacao = _doacaoFixture.DoacaoValida();
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
+            
 
             // Act
             var valido = doacao.Valido();
@@ -89,11 +90,10 @@ namespace Vaquinha.Unit.Tests.DomainTests
         [Trait("Doacao", "Doacao_ValoresDoacaoMaiorLimite_DoacaoInvalida")]
         public void Doacao_ValoresDoacaoMaiorLimite_DoacaoInvalida(double valorDoacao)
         {
-            // Arrange
-            const bool EXCEDER_MAX_VALOR_DOACAO = true;
-            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao, EXCEDER_MAX_VALOR_DOACAO);
+            // Arrange            
+            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
-            doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
+            doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());            
 
             // Act
             var valido = doacao.Valido();
