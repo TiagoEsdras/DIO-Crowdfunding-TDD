@@ -91,7 +91,7 @@ namespace Vaquinha.Unit.Tests.DomainTests
         {
             // Arrange
             const bool EXCEDER_MAX_VALOR_DOACAO = true;
-            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao);
+            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao, EXCEDER_MAX_VALOR_DOACAO);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
 
